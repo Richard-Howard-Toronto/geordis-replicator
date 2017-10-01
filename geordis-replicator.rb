@@ -1,3 +1,4 @@
+require 'pry'
 # IMPORTANT: DO NOT MODIFY THIS FILE.
 # To complete this assignment you only need to modify
 # the files inside the individual /episode-xx/ folders.
@@ -35,6 +36,7 @@ display.replicator_whirling_effect
 # Look at the method `replicate` inside the Replicator
 # class to see how the replicator works.
 enterprise.replicator.replicate(episode.recipe)
+
 
 # Display this episode's character aniticipating what the replicator is creating
 display.star_anticipating_replicator_creation

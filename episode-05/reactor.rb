@@ -20,11 +20,13 @@ class Reactor
     @dilithium_crystals = 0
     stock
     turn_on
+
   end
 
   def core
     @core
   end
+
 
   def on
     @on

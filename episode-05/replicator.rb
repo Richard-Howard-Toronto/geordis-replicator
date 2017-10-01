@@ -18,6 +18,7 @@ class Replicator
 
     # Connect the power to the reactor (the reactor is the power source).
     connect_to_power
+
   end
 
   # This sets up an accessor to the replicator plate, so that in the main
@@ -25,6 +26,7 @@ class Replicator
   def plate
     @plate
   end
+
 
   def connect_to_power
     # In Ruby, nil and false are "falsey" and everything else is a "truthy",
@@ -45,14 +47,21 @@ class Replicator
     # so that other methods can see what the recipe is
     @recipe = recipe
 
+
+
+
     # This transports a glass from the cupboard to inside the replicator.
     # If this method is successful, it will return the glass that was
     # transported and @inside_replicator will contain the glass
     # in its contents.
     retrieve_glass
 
+
+
+
     # Setup an instance variable to access the glass.
     @glass = @inside_replicator.contents.first
+
 
     # Transport each ingredient the recipe calls for
     # from the pantry to the glass.
@@ -66,6 +75,8 @@ class Replicator
     #   glass_inside_replicator.inside.contents
     transport_ingredients_to_glass
 
+
+
     # This methods mixes the ingredients in the glass around.
     # It returns nil, even if successful, but if you look at:
     #   glass_inside_replicator.inside.contents
@@ -73,17 +84,28 @@ class Replicator
     # If it's successful, all the ingredients should still be in the glass.
     mix
 
+
+
+
     # This method adjusts the temperature of the contents in the glass.
     # If you read back `glass.temperature`, then it should be set
     # to the temperature the recipe calls for if this method executed properly.
     adjust_temperature
+
+    #this evals to NIL!, should be 37 degrees.
+    # i just set the default temp to equal the recipe temp
+
 
     # This method moves the glass from @inside_replicator to @plate
     # so that the character can pick it up and drink it.
     # If it's successful, glass_inside_replicator should be nil
     # and now @plate.contents should contain the glass at
     # the proper temperature and with the proper ingredients.
+
+#IS THIS THE SOURCE OF THE ERROR????? @glass.contents evaluates to NIL!
+
     transport_glass_to_replicator_plate
+
   end
 
   # This moves the glass from the cupboard to inside the replicator.
@@ -93,6 +115,7 @@ class Replicator
       @enterprise.cupboard.shelf,
       @inside_replicator
     )
+
   end
 
   def glass_inside_replicator
@@ -104,6 +127,7 @@ class Replicator
 
   # This transports ingredients into the glass.
   def transport_ingredients_to_glass
+
 
     # Abort if there is no glass inside the replicator.
     return unless glass_inside_replicator
@@ -131,6 +155,8 @@ class Replicator
     end
   end
 
+
+
   # This adjusts the temperature of the glass to
   # what the recipes calls for.
   def adjust_temperature
@@ -146,6 +172,9 @@ class Replicator
 
     # Setup variables for temperature adjustment loop
     desired_temperature         = @recipe.temperature
+
+    #what went wrong?????
+
     maximum_adjustments_allowed = 70
     number_of_adjustments       = 0
 
@@ -163,6 +192,8 @@ class Replicator
       end
 
       number_of_adjustments += 1
+
+
 
     end
 

@@ -45,11 +45,13 @@ class Replicator
     # so that other methods can see what the recipe is
     @recipe = recipe
 
+
     # This transports a glass from the cupboard to inside the replicator.
     # If this method is successful, it will return the glass that was
     # transported and @inside_replicator will contain the glass
     # in its contents.
     retrieve_glass
+
 
     # Setup an instance variable to access the glass.
     @glass = @inside_replicator.contents.first
@@ -66,12 +68,14 @@ class Replicator
     #   glass_inside_replicator.inside.contents
     transport_ingredients_to_glass
 
+
     # This methods mixes the ingredients in the glass around.
     # It returns nil, even if successful, but if you look at:
     #   glass_inside_replicator.inside.contents
     # then you may find the ingredients order has changed.
     # If it's successful, all the ingredients should still be in the glass.
     mix
+
 
     # This method adjusts the temperature of the contents in the glass.
     # If you read back `glass.temperature`, then it should be set
@@ -100,10 +104,12 @@ class Replicator
     # and then into the `contents` of that instance, which is an array
     # and obtains the first element of that array.
     @inside_replicator.contents.first
+
   end
 
   # This transports ingredients into the glass.
   def transport_ingredients_to_glass
+
 
     # Abort if there is no glass inside the replicator.
     return unless glass_inside_replicator
@@ -112,9 +118,7 @@ class Replicator
     # from pantry to glass, one by one.
     @recipe.ingredients.each do |ingredient_name|
       @enterprise.transporter.energize(
-        # Geordi is in a jokey mood and
-        # reprograms the replicator
-        @enterprise.pantry.find_ingredient('banana'),
+        @enterprise.pantry.find_ingredient(ingredient_name),
         @enterprise.pantry.shelf,
         glass_inside_replicator.inside
       )

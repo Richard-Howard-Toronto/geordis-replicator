@@ -51,8 +51,11 @@ class Replicator
     # in its contents.
     retrieve_glass
 
+
     # Setup an instance variable to access the glass.
     @glass = @inside_replicator.contents.first
+
+    binding.pry
 
     # Transport each ingredient the recipe calls for
     # from the pantry to the glass.

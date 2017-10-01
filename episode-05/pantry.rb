@@ -20,10 +20,15 @@ class Pantry
         @shelf.contents << Ingredient.new(ingredient_name)
       end
     end
+
+    
+
   end
 
   def find_ingredient(name)
     @shelf.contents.find { |item| item.name == name }
+
+
   end
 
 end

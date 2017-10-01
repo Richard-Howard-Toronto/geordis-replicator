@@ -1,3 +1,5 @@
+require 'pry'
+# exercise 6
 class Replicator
 
   # When the Enterprise calls Replicator.new, this method executes.
@@ -13,17 +15,20 @@ class Replicator
     # final drink should end up for the character to consume.
     @plate = Location.new
 
+
     # Setup the power for the replicator.
     @power = false
 
     # Connect the power to the reactor (the reactor is the power source).
     connect_to_power
+
   end
 
   # This sets up an accessor to the replicator plate, so that in the main
   # geordis-replicator.rb program, we can see what's on the replicator plate (if anything)
   def plate
     @plate
+
   end
 
   def connect_to_power
@@ -41,18 +46,28 @@ class Replicator
   # it returns what's expect.
   def replicate(recipe)
 
+
     # Setup an instance variable for the recipe
     # so that other methods can see what the recipe is
     @recipe = recipe
+
+
 
     # This transports a glass from the cupboard to inside the replicator.
     # If this method is successful, it will return the glass that was
     # transported and @inside_replicator will contain the glass
     # in its contents.
+
     retrieve_glass
+
+
+
 
     # Setup an instance variable to access the glass.
     @glass = @inside_replicator.contents.first
+
+
+
 
     # Transport each ingredient the recipe calls for
     # from the pantry to the glass.
@@ -100,6 +115,7 @@ class Replicator
     # and then into the `contents` of that instance, which is an array
     # and obtains the first element of that array.
     @inside_replicator.contents.first
+
   end
 
   # This transports ingredients into the glass.

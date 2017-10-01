@@ -22,6 +22,8 @@ class Reactor
     turn_on
   end
 
+  binding.pry
+
   def core
     @core
   end

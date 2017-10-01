@@ -1,3 +1,5 @@
+require 'pry'
+
 # The Reactor is what powers the ship.
 # It uses dilithium crystals as its fuel.
 # If it runs out of dilithium crystals, the power is turned off.
@@ -21,6 +23,10 @@ class Reactor
     stock
     turn_on
   end
+
+
+
+
 
   def core
     @core

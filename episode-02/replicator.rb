@@ -1,3 +1,5 @@
+require 'pry'
+
 class Replicator
 
   # When the Enterprise calls Replicator.new, this method executes.
@@ -39,6 +41,7 @@ class Replicator
   # Put a `binding.pry` at the beginning of this method
   # and then manually execute each method to ensure
   # it returns what's expect.
+
   def replicate(recipe)
 
     # Setup an instance variable for the recipe
@@ -125,7 +128,8 @@ class Replicator
     # Abort if there is no glass inside the replicator or no power.
     return unless glass_inside_replicator && @power
 
-    mouse_chews_through_power_cord
+    # !!!!! we are commenting out this method
+    #mouse_chews_through_power_cord
 
     # Draw power if possible and then mix ingredients around.
     if @enterprise.reactor.draw_power(3)
