@@ -19,6 +19,7 @@ class Replicator
     # Setup the power for the replicator.
     @power = false
 
+
     # Connect the power to the reactor (the reactor is the power source).
     connect_to_power
 
@@ -53,12 +54,16 @@ class Replicator
 
 
 
+
     # This transports a glass from the cupboard to inside the replicator.
     # If this method is successful, it will return the glass that was
     # transported and @inside_replicator will contain the glass
     # in its contents.
 
     retrieve_glass
+
+
+
 
 
 
@@ -103,6 +108,7 @@ class Replicator
 
   # This moves the glass from the cupboard to inside the replicator.
   def retrieve_glass
+  
     @enterprise.transporter.energize(
       @enterprise.cupboard.find_glass,
       @enterprise.cupboard.shelf,

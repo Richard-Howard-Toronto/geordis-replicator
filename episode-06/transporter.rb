@@ -10,18 +10,16 @@ class Transporter
     @enterprise = enterprise
     @power = false
     connect_to_power
-    obriens_repairs_transporter
+
   end
 
   def connect_to_power
     @power = @enterprise.reactor.on
   end
 
-  def obriens_repairs_transporter
-    @power = false
-  end
 
   def energize(obj, from, to)
+
     return unless @power
 
 

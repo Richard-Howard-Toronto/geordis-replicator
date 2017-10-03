@@ -31,10 +31,11 @@ class Reactor
   end
 
   def stock
-    @dilithium_crystals += 100
+    @dilithium_crystals += 1000
   end
 
   def draw_power(amount = 1)
+#    binding.pry
     amount.times do
       return false if off?
       drain_power
@@ -42,6 +43,7 @@ class Reactor
   end
 
   def drain_power
+    p @dilithium_crystals
     @dilithium_crystals -= 1 if on?
     turn_off if @dilithium_crystals == 0
   end
